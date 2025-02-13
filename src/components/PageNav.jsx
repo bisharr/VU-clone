@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function PageNav() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mt-5">
       <Link to="/">
         <Button>Home</Button>
       </Link>

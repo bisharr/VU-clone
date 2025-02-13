@@ -1,5 +1,6 @@
 import LeftSide from "../components/LeftSide";
 import Button from "../components/Button";
+import Details from "../components/Details";
 
 function Lectures() {
   return (
@@ -9,7 +10,11 @@ function Lectures() {
           <LeftSide />
         </Button>
       </div>
-      <div className="flex-1 bg-gray-100 h-screen ">Lectures</div>
+      <div className="flex-1 bg-gray-100 h-screen ">
+        <Details />
+        <Lectures>Lectures</Lectures>
+        <h1>Lectures</h1>
+      </div>
     </div>
   );
 }

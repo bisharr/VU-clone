@@ -1,5 +1,7 @@
 import Button from "../components/Button";
 import LeftSide from "../components/LeftSide";
+import Details from "../components/Details";
+import PageTitle from "../components/PageTitle";
 
 function CourseWork() {
   return (
@@ -9,7 +11,11 @@ function CourseWork() {
           <LeftSide />
         </Button>
       </div>
-      <div className="flex-1 bg-gray-100 h-screen ">Course work</div>
+      <div className="flex-1 bg-gray-100 h-screen ">
+        <Details />
+        <PageTitle>Home</PageTitle>
+        <h1>Course Work</h1>
+      </div>
     </div>
   );
 }

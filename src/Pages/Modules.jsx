@@ -1,5 +1,8 @@
 import Button from "../components/Button";
+
+import Details from "../components/Details";
 import LeftSide from "../components/LeftSide";
+import ModulesFront from "../components/ModulesFront";
 
 function Modules() {
   return (
@@ -9,7 +12,11 @@ function Modules() {
           <LeftSide />
         </Button>
       </div>
-      <div className="flex-1 bg-gray-100 h-screen ">Modules</div>
+      <div className="flex-1  bg-gray-100 h-screen ">
+        <Details />
+
+        <ModulesFront />
+      </div>
     </div>
   );
 }

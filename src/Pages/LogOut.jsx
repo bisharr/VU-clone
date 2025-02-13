@@ -1,9 +1,9 @@
 import Button from "../components/Button";
-import Details from "../components/Details";
 import LeftSide from "../components/LeftSide";
+import Details from "../components/Details";
 import PageTitle from "../components/PageTitle";
 
-function Fiancial() {
+function LogOut() {
   return (
     <div className="w-full flex">
       <div className="basis-1/5">
@@ -13,18 +13,10 @@ function Fiancial() {
       </div>
       <div className="flex-1 bg-gray-100 h-screen ">
         <Details />
-        <PageTitle>Payments</PageTitle>
-        <h2>
-          <strong>Billing trimester</strong> october 17 2014
-        </h2>
-        <progress
-          className="w-20 h-20 progress-rounded"
-          value={100}
-          max={100}
-        />
+        <PageTitle>Log out</PageTitle>
       </div>
     </div>
   );
 }
 
-export default Fiancial;
+export default LogOut;

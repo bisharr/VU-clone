@@ -4,11 +4,14 @@ import Modules from "./Pages/Modules";
 import Lectures from "./Pages/Lectures";
 import CourseWork from "./Pages/CourseWork";
 import Examination from "./Pages/Examination";
-import Main from "./components/Main";
+// import Main from "./components/Main";
 import PageNotFound from "./Pages/PageNotFound";
 import ExamResults from "./Pages/ExamResults";
 import Fiancial from "./Pages/Fiancial";
 import Teachers from "./Pages/Teachers";
+import Elections from "./Pages/Elections";
+import Setting from "./Pages/Setting";
+import LogOut from "./Pages/LogOut";
 
 function App() {
   return (
@@ -23,6 +26,9 @@ function App() {
         <Route path="examresults" element={<ExamResults />} />
         <Route path="financial" element={<Fiancial />} />
         <Route path="teachers" element={<Teachers />} />
+        <Route path="elections" element={<Elections />} />
+        <Route path="setting" element={<Setting />} />
+        <Route path="logout" element={<LogOut />} />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

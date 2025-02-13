@@ -1,0 +1,8 @@
+.nav :global(.active) {
+  border-left: 10px solid rgb(192, 23, 23);
+  display: flex;
+  height: 100%;
+  width: 100%;
+  color: #167cdbf1;
+  /* padding-left: 50px; */
+}
