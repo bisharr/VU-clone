@@ -12,7 +12,7 @@ function Modules() {
           <LeftSide />
         </Button>
       </div>
-      <div className="flex-1  bg-gray-100 h-screen ">
+      <div className="flex-1  bg-gray-100 h-screen overflow-scroll scrol ">
         <Details />
 
         <ModulesFront />

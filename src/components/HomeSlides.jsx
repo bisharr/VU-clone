@@ -35,8 +35,10 @@ function HomeSlides() {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % messages.length);
     }, 2000);
+
     return () => clearInterval(interval);
-  }, [messages.length, pause]);
+  }, [messages, pause]); // ✅ Changed `messages.length` to `messages`
+
   return (
     <div className="basis-[70%]">
       <div className=" text-white bg-blue-500 w-full flex rounded-[8px] ">

@@ -1,5 +1,9 @@
 import students from "../assets/students.png";
 import ModuleAction from "./ModuleAction";
+import ModuleItems from "./ModuleItems";
+import ModulesList from "./ModulesList";
+import TrimesterYear from "./TrimesterYear";
+import YearModule from "./YearModule";
 
 function ModulesFront() {
   return (
@@ -20,6 +24,46 @@ function ModulesFront() {
         </div>
       </div>
       <ModuleAction />
+      <YearModule>1</YearModule>
+      <TrimesterYear>1</TrimesterYear>
+      <ModulesList>
+        <ModuleItems>Introduction to Ict</ModuleItems>
+        <ModuleItems>Communication Skills</ModuleItems>
+        <ModuleItems>Computer Architecture and Organisation</ModuleItems>
+        <ModuleItems>Exploring My Story; Creating My Paths</ModuleItems>
+        <ModuleItems>Fundamentals of Information Systems</ModuleItems>
+      </ModulesList>
+      {/* Trimester 2 */}
+      <TrimesterYear>2</TrimesterYear>
+      <ModulesList>
+        <ModuleItems>Programming Fundamentals</ModuleItems>
+        <ModuleItems>Mathematics for It Professionals</ModuleItems>
+        <ModuleItems>Business Statistics</ModuleItems>
+        <ModuleItems>Systems Analysis and Design</ModuleItems>
+        <ModuleItems>Career Readiness Skills</ModuleItems>
+      </ModulesList>
+      {/* Trimester 3 */}
+      <TrimesterYear>3</TrimesterYear>
+      <ModulesList>
+        <ModuleItems>Internet Technology and Web Design</ModuleItems>
+        <ModuleItems>Object Oriented Programming</ModuleItems>
+        <ModuleItems>Application Development and Database Design</ModuleItems>
+        <ModuleItems>Preparing to Enter the World of Work</ModuleItems>
+        <ModuleItems>Ethical and Professional Issues in It</ModuleItems>
+      </ModulesList>
+      {/* Year 2 */}
+      <YearModule>2</YearModule>
+      <TrimesterYear>1</TrimesterYear>
+      <ModulesList>
+        <ModuleItems>Data Communication and Networking</ModuleItems>
+        <ModuleItems>Database Management Systems 1</ModuleItems>
+        <ModuleItems>Geographical Information Systems</ModuleItems>
+        <ModuleItems>Entrepreneurship</ModuleItems>
+        <ModuleItems>
+          Soft Skills to Get and Keep a Job. Communications and Interpersonal
+          Skills
+        </ModuleItems>
+      </ModulesList>
     </div>
   );
 }

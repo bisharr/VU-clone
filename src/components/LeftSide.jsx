@@ -4,7 +4,7 @@ import ExamResulbtn from "../buttons/ExamResulbtn";
 import FinancialBtn from "../buttons/FinancialBtn";
 
 import Homebtn from "../buttons/Homebtn";
-import Lecturebtn from "../buttons/Lecturebtn";
+// import Lecturebtn from "../buttons/Lecturebtn";
 import Modulesbtn from "../buttons/Modulesbtn";
 import TeachersBtn from "../buttons/TeachersBtn";
 import logo from "../assets/logo.png";
@@ -21,7 +21,7 @@ function LeftSide() {
       <Homebtn />
 
       <Modulesbtn />
-      <Lecturebtn />
+      {/* <Lecturebtn /> */}
       <CourseWorksbtn />
       <Examininationbtn />
       <ExamResulbtn />

@@ -2,7 +2,7 @@ import Button from "../components/Button";
 import Details from "../components/Details";
 import LeftSide from "../components/LeftSide";
 import PageTitle from "../components/PageTitle";
-import TeacherDetail from "../components/TeacherDetail";
+// import TeacherDetail from "../components/TeacherDetail";
 import TeacherList from "../components/TeacherList";
 
 function Teachers({ teacher }) {
@@ -18,7 +18,6 @@ function Teachers({ teacher }) {
         <Details />
         <PageTitle>Teachers</PageTitle>
         <TeacherList teacher={teacher} />
-        {/* <TeacherDetail teacher={teacher} /> */}
       </div>
     </div>
   );

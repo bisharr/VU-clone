@@ -231,7 +231,12 @@ function App() {
         <Route path="examresults" element={<ExamResults />} />
         <Route path="financial" element={<Fiancial />} />
         <Route path="teachers" element={<Teachers teacher={teacher} />} />
-        <Route path="teachers/:id" element={<TeacherDetail />} />
+        {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
+        <Route
+          path="teachers/:id"
+          element={<TeacherDetail teacher={teacher} />}
+        />
+
         <Route path="elections" element={<Elections />} />
         <Route path="setting" element={<Setting />} />
         <Route path="logout" element={<LogOut />} />
