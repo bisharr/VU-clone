@@ -1,9 +1,14 @@
+import { useState } from "react";
 import Button from "../components/Button";
 import Details from "../components/Details";
 import LeftSide from "../components/LeftSide";
 import PageTitle from "../components/PageTitle";
 
 function Financial() {
+  const [totalFees, setTotalfees] = useState(500);
+  const [paidSofar, setPaidsofar] = useState(380);
+
+  const percentagePaid = (paidSofar / totalFees) * 100;
   return (
     <div className="flex flex-row flex-wrap w-full min-h-screen">
       {/* Sidebar */}
@@ -28,28 +33,62 @@ function Financial() {
           {/* Payment Details */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-4">
             <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="text-xl font-semibold">USD 204.0</p>
-              <p className="text-gray-600">Total Fees Payable</p>
+              <div className="flex items-center gap-1.5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="size-10"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M20.25 6.375c0 2.278-3.694 4.125-8.25 4.125S3.75 8.653 3.75 6.375m16.5 0c0-2.278-3.694-4.125-8.25-4.125S3.75 4.097 3.75 6.375m16.5 0v11.25c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125V6.375m16.5 0v3.75m-16.5-3.75v3.75m16.5 0v3.75C20.25 16.153 16.556 18 12 18s-8.25-1.847-8.25-4.125v-3.75m16.5 0c0 2.278-3.694 4.125-8.25 4.125s-8.25-1.847-8.25-4.125"
+                  />
+                </svg>
+                <div>
+                  <p className="text-xl font-semibold">USD {totalFees}</p>
+                  <p className="text-gray-600 text-[12px]">
+                    Total Fees Payable
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="text-xl font-semibold text-green-500">USD 205.5</p>
+              <p className="text-xl font-semibold text-green-500">
+                USD {paidSofar}
+              </p>
               <p className="text-gray-600">Paid So Far</p>
             </div>
             <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="text-xl font-semibold text-red-600">USD 0.0</p>
+              <p className="text-xl font-semibold text-red-600">
+                USD
+                {totalFees - paidSofar}
+              </p>
               <p className="text-gray-600">Debit Balance</p>
             </div>
             <div className="bg-gray-100 p-4 rounded-md text-center">
-              <p className="text-xl font-semibold text-green-500">USD 1.5</p>
+              <p className="text-xl font-semibold text-green-500">{`USD ${
+                paidSofar > totalFees ? paidSofar - totalFees : "0"
+              }`}</p>
               <p className="text-gray-600">Credit Balance</p>
             </div>
-            <div className="bg-gray-100 p-4 rounded-md text-center flex flex-col items-center">
+            <div className="bg-gray-100 p-4 rounded-md text-center flex flex-col gap-1.5  items-center">
               <progress
-                className="w-20 h-20 appearance-none [&::-webkit-progress-bar]:rounded-full [&::-webkit-progress-value]:rounded-full [&::-moz-progress-bar]:rounded-full"
-                value="76"
-                max="100"
+                className="w-[90%]  h-4 appearance-none overflow-hidden 
+  bg-white rounded-lg 
+  [&::-webkit-progress-bar]:bg-gray-200 
+  [&::-webkit-progress-value]:bg-green-500 [&::-webkit-progress-value]:rounded-lg 
+  [&::-moz-progress-bar]:bg-green-500"
+                value={paidSofar}
+                max={totalFees}
               ></progress>
-              <p className="text-gray-600 mt-2">78% Paid So Far</p>
+
+              <p className="text-gray-600 mt-2">
+                {percentagePaid}% Paid So Far
+              </p>
             </div>
           </div>
 
