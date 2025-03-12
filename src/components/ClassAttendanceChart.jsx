@@ -32,10 +32,10 @@ const lastDate = new Date();
 function ClassAttendanceChart() {
   return (
     <div className="w-full  p-4 bg-white shadow-lg rounded-2xl">
-      <h2 className="text-xl font-bold text-center mb-2">
+      <h2 className="text-[18px] font-bold ml-2.5 text-blue-500 mb-2">
         Class Attendance of Last 7 Days
       </h2>
-      <h3 className="text-md text-center text-gray-600 mb-4">
+      <h3 className="text-[16px] ml-2.5 text-gray-400 mb-4">
         {firstDate.toLocaleDateString("en-US", {
           day: "numeric",
           month: "short",

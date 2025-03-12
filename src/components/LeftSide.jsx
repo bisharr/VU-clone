@@ -17,7 +17,7 @@ import LogOutbtn from "../buttons/LogOutbtn";
 
 function LeftSide() {
   return (
-    <div className="w-full flex flex-col   bg-gray-5  h-screen  overflow-y-scroll scrol">
+    <div className="w-full flex flex-col items-start pl-4 text-[18px]   bg-gray-5  h-screen  overflow-y-scroll scrol">
       <img src={logo} className="w-[60%] my-10 mx-auto" />
       <Homebtn />
       <Modulesbtn />

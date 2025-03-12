@@ -6,7 +6,7 @@ function Homebtn() {
     <div className={styles.nav}>
       <NavLink
         to="/"
-        className="inline text-[18px] font-semibold text-gray-900  hover:text-blue-400 items-center cursor-pointer py-1 gap-2 rounded-sm w-full hover:bg-gray-50 delay-200 
+        className="inline text-[18px] font-semibold text-gray-700  hover:text-blue-400 items-center cursor-pointer py-1 gap-2 rounded-sm w-full hover:bg-gray-50 delay-200 
 transition-all duration-200 hover:text-[17px]"
       >
         <div className="flex p-2 w-full gap-3 justify-center items-center">
