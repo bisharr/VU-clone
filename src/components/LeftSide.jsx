@@ -11,6 +11,7 @@ import logo from "../assets/logo.png";
 import Electionbtn from "../buttons/Electionbtn";
 import Settingbtn from "../buttons/Settingbtn";
 import LogOutbtn from "../buttons/LogOutbtn";
+import TodoBtn from "../buttons/TodoBtn";
 // import LecBtn from "../buttons/LecBtn";
 
 // bg-gray-50 main bg
@@ -28,6 +29,7 @@ function LeftSide() {
       <FinancialBtn />
       <Electionbtn />
       <TeachersBtn />
+      <TodoBtn />
       <div className=" mt-10">
         <Settingbtn />
         <LogOutbtn />

@@ -5,7 +5,7 @@ function Homebtn() {
   return (
     <div className={styles.nav}>
       <NavLink
-        to="/"
+        to="/home"
         className="inline text-[18px] font-semibold text-gray-700  hover:text-blue-400 items-center cursor-pointer py-1 gap-2 rounded-sm w-full hover:bg-gray-50 delay-200 
 transition-all duration-200 hover:text-[17px]"
       >

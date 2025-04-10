@@ -1,11 +1,9 @@
-function Details() {
+function Details({ regNo, fullname }) {
   return (
     <div className=" w-[96%] mx-auto  flex justify-between items-center p-3 mt-3.5">
       <div className="flex gap-x-3 items-center">
-        <p className=" font-bold">Bishar Abdinur Mohamed|</p>
-        <p className="text-gray-400 text-[13px] space-x-1">
-          VU-BCS-2301-0961-DAY
-        </p>
+        <p className=" font-bold">{fullname}|</p>
+        <p className="text-gray-400 text-[13px] space-x-1">{regNo}</p>
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"

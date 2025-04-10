@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 import Home from "./Pages/Home";
 import Modules from "./Pages/Modules";
 import Lectures from "./Pages/Lectures";
@@ -8,11 +9,13 @@ import Examination from "./Pages/Examination";
 import PageNotFound from "./Pages/PageNotFound";
 import ExamResults from "./Pages/ExamResults";
 import Fiancial from "./Pages/Fiancial";
+import TodoList from "./Pages/TodoList";
 import Teachers from "./Pages/Teachers";
 import Elections from "./Pages/Elections";
 import Setting from "./Pages/Setting";
 import LogOut from "./Pages/LogOut";
 import TeacherDetail from "./components/TeacherDetail";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   const teacher = [
@@ -219,31 +222,51 @@ function App() {
     },
   ];
 
+  const [fullname, setFullname] = useState("Bishar Abdinur");
+  const [regno, setRegno] = useState("VU-BCS-2301-0961-DAY");
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="modules" element={<Modules />} />
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="home"
+            element={<Home fullname={fullname} regNo={regno} />}
+          />
+          <Route
+            path="/"
+            element={
+              <LoginPage
+                fullname={fullname}
+                regNo={regno}
+                setFullname={setFullname}
+                setRegno={setRegno}
+              />
+            }
+          />
+          <Route path="modules" element={<Modules />} />
 
-        <Route path="lec" element={<Lectures />} />
-        <Route path="coursework" element={<CourseWork />} />
-        <Route path="exams" element={<Examination />} />
-        <Route path="examresults" element={<ExamResults />} />
-        <Route path="financial" element={<Fiancial />} />
-        <Route path="teachers" element={<Teachers teacher={teacher} />} />
-        {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
-        <Route
-          path="teachers/:id"
-          element={<TeacherDetail teacher={teacher} />}
-        />
+          <Route path="lec" element={<Lectures />} />
+          <Route path="coursework" element={<CourseWork />} />
+          <Route path="exams" element={<Examination />} />
+          <Route path="examresults" element={<ExamResults />} />
+          <Route path="financial" element={<Fiancial />} />
+          <Route path="teachers" element={<Teachers teacher={teacher} />} />
+          {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
+          <Route
+            path="teachers/:id"
+            element={<TeacherDetail teacher={teacher} />}
+          />
 
-        <Route path="elections" element={<Elections />} />
-        <Route path="setting" element={<Setting />} />
-        <Route path="logout" element={<LogOut />} />
+          <Route path="elections" element={<Elections />} />
+          <Route path="setting" element={<Setting />} />
+          <Route path="todo" element={<TodoList />} />
+          <Route path="logout" element={<LogOut />} />
 
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
-    </BrowserRouter>
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 
