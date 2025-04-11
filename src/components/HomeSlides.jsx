@@ -142,10 +142,50 @@ function HomeSlides() {
       {/* Attendence */}
       <div className="mt-4 flex items-center gap-2">
         <ClassAttendanceChart />
-        <img
+        {/* testing */}
+        <div className="carousel h-100 w-[45%]">
+          <div id="slide1" className="carousel-item relative w-full">
+            <img src={election} className="w-full object-cover" />
+            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+              <a
+                href="#slide4"
+                className="btn btn-circle size-8 bg-blue-400 border-none text-white"
+              >
+                ❮
+              </a>
+              <a
+                href="#slide4"
+                className="btn btn-circle size-8 bg-blue-400 border-none text-white"
+              >
+                ❯
+              </a>
+            </div>
+          </div>
+
+          <div id="slide4" className="carousel-item relative w-full">
+            <img src={election} className="w-full object-cover" />
+            <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
+              <a
+                href="#slide1"
+                className="btn btn-circle size-8 bg-blue-400 border-none text-white"
+              >
+                ❮
+              </a>
+              <a
+                href="#slide1"
+                className="btn btn-circle size-8 bg-blue-400 border-none text-white"
+              >
+                ❯
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* testin */}
+        {/* <img
           className=" h-100 w-[35%] object-cover rounded-xl"
           src={election}
-        />
+        /> */}
       </div>
     </div>
   );

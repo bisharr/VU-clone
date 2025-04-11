@@ -1,16 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import coverImg from "../assets/grouppic.jpg";
 import logo from "../assets/logo.png";
 
 function LoginPage({ fullname, regNo, setFullname, setRegno }) {
+  const navigateTOhome = useNavigate();
   function onAdd(e) {
     e.preventDefault();
     if (!fullname) return;
     if (!regNo) return;
 
+    navigateTOhome("/home");
     setFullname("");
-    setRegno("");
-    console.log(fullname, regNo);
   }
   return (
     <div className="flex  border-2 p-1.5 py-3.5 h-screen w-screen bg-white ">
@@ -43,12 +43,12 @@ function LoginPage({ fullname, regNo, setFullname, setRegno }) {
             <span>Remember me </span>
           </div>
 
-          <Link
-            to="/home"
-            className=" mr-1.5 text-center text-white border-0 bg-blue-500 w-[100%] px-4 rounded py-2 cursor-pointer"
+          <button
+            onClick={onAdd}
+            className="mr-1.5 text-center text-white border-0 bg-blue-500 w-[100%] px-4 rounded py-2 cursor-pointer"
           >
-            <button className="">Sign in</button>
-          </Link>
+            Sign in
+          </button>
         </form>
       </div>
       <div className=" w-[60%] h-[100%] hidden md:flex">
