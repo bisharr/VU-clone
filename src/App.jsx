@@ -7,15 +7,15 @@ import CourseWork from "./Pages/CourseWork";
 import Examination from "./Pages/Examination";
 // import Main from "./components/Main";
 import PageNotFound from "./Pages/PageNotFound";
-import ExamResults from "./Pages/ExamResults";
+import ExamResults from "./Pages/ExamResults.jsx";
 import Fiancial from "./Pages/Fiancial";
 
-import Teachers from "./Pages/Teachers";
+import Teachers from "./Pages/Teachers.jsx";
 import Elections from "./Pages/Elections";
 import Setting from "./Pages/Setting";
 import LogOut from "./Pages/LogOut";
 import TeacherDetail from "./components/TeacherDetail";
-import LoginPage from "./pages/LoginPage";
+import LoginPage from "./pages/LoginPage.jsx";
 import VuAiModel from "./Pages/VuAiModel";
 import NewTodoList from "./Pages/NewTodoList";
 
