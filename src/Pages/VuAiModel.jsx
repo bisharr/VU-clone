@@ -2,6 +2,8 @@ import { useState } from "react";
 import Button from "../components/Button";
 import LeftSide from "../components/LeftSide";
 import { askGemini } from "../serviceAPi/GeminiAPi";
+import PageTitle from "../components/PageTitle";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 function VuAiModel() {
   const [question, setQuestion] = useState("");
@@ -32,10 +34,15 @@ function VuAiModel() {
           <LeftSide />
         </Button>
       </div>
+
       <div className="flex-1 bg-gray-100 h-screen ">
+        <PageTitle className="my-2.5">VU AI</PageTitle>
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
           <div className="w-full max-w-2xl">
-            <h1 className="text-2xl font-bold text-center mb-4">VuaiStudent</h1>
+            <h1 className="text-2xl font-bold text-center mb-4 ">
+              Interact with VU AI – Ask Anything and Receive Immediate, Accurate
+              Responses
+            </h1>
 
             {/* Input and Button */}
             <div className="flex gap-2 mb-4">
@@ -57,7 +64,7 @@ function VuAiModel() {
             {/* Output Area */}
             <div className="bg-white border border-gray-300 rounded-lg p-4 h-64 overflow-y-auto">
               {loading ? (
-                "Loading..."
+                <AiOutlineLoading3Quarters className="animate-spin w-5 h-6" />
               ) : (
                 <p className="whitespace-pre-wrap text-gray-800">{answer}</p>
               )}

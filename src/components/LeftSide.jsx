@@ -32,7 +32,7 @@ function LeftSide() {
       <TeachersBtn />
       <TodoBtn />
       <VuAi />
-      <div className=" mt-10">
+      <div className=" my-10">
         <Settingbtn />
         <LogOutbtn />
       </div>
