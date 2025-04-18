@@ -9,13 +9,15 @@ import Examination from "./Pages/Examination";
 import PageNotFound from "./Pages/PageNotFound";
 import ExamResults from "./Pages/ExamResults";
 import Fiancial from "./Pages/Fiancial";
-import TodoList from "./Pages/TodoList";
+
 import Teachers from "./Pages/Teachers";
 import Elections from "./Pages/Elections";
 import Setting from "./Pages/Setting";
 import LogOut from "./Pages/LogOut";
 import TeacherDetail from "./components/TeacherDetail";
 import LoginPage from "./pages/LoginPage";
+import VuAiModel from "./Pages/VuAiModel";
+import NewTodoList from "./Pages/NewTodoList";
 
 function App() {
   const teacher = [
@@ -245,12 +247,14 @@ function App() {
             }
           />
           <Route path="modules" element={<Modules />} />
+          <Route path="vuai" element={<VuAiModel />} />
 
           <Route path="lec" element={<Lectures />} />
           <Route path="coursework" element={<CourseWork />} />
           <Route path="exams" element={<Examination />} />
           <Route path="examresults" element={<ExamResults />} />
           <Route path="financial" element={<Fiancial />} />
+          <Route path="todoList" element={<NewTodoList />} />
           <Route path="teachers" element={<Teachers teacher={teacher} />} />
           {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
           <Route
@@ -260,7 +264,7 @@ function App() {
 
           <Route path="elections" element={<Elections />} />
           <Route path="setting" element={<Setting />} />
-          <Route path="todo" element={<TodoList />} />
+
           <Route path="logout" element={<LogOut />} />
 
           <Route path="*" element={<PageNotFound />} />

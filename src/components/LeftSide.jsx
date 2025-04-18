@@ -12,6 +12,7 @@ import Electionbtn from "../buttons/Electionbtn";
 import Settingbtn from "../buttons/Settingbtn";
 import LogOutbtn from "../buttons/LogOutbtn";
 import TodoBtn from "../buttons/TodoBtn";
+import VuAi from "../buttons/VuAi";
 // import LecBtn from "../buttons/LecBtn";
 
 // bg-gray-50 main bg
@@ -30,6 +31,7 @@ function LeftSide() {
       <Electionbtn />
       <TeachersBtn />
       <TodoBtn />
+      <VuAi />
       <div className=" mt-10">
         <Settingbtn />
         <LogOutbtn />

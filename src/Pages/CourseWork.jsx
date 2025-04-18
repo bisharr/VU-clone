@@ -4,7 +4,20 @@ import Details from "../components/Details";
 import PageTitle from "../components/PageTitle";
 import CourseWrokpage from "../components/CourseWrokpage";
 
+import { useEffect } from "react";
+import { askGemini } from "../serviceAPi/GeminiAPi";
+
 function CourseWork() {
+  console.log("Hello from gemini ");
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await askGemini("What is Tailwind CSS?");
+      console.log(response);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <div className="w-full flex">
       <div className="basis-1/5">
