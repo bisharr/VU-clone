@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function LogOut() {
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>

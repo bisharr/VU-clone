@@ -12,7 +12,7 @@ function Financial() {
   return (
     <div className="flex flex-row flex-wrap w-full min-h-screen">
       {/* Sidebar */}
-      <div className=" basis-1/5">
+      <div className=" md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>

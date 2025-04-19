@@ -36,55 +36,136 @@ const examResults = [
   // Add more data as needed
 ];
 
-function ExamResults() {
+function ExamResults({ openMenu, setOpenMenu, fullname, regNo }) {
+  const downloadCSV = () => {
+    const headers = [
+      "Module",
+      "Result",
+      "Academic Year",
+      "Code",
+      "Credit Units",
+      "Score",
+      "Grade",
+      "Grade Points",
+    ];
+
+    const csvRows = [
+      headers.join(","), // First row (headers)
+      ...examResults.map((result) =>
+        [
+          result.moduleName,
+          result.result,
+          result.academicYear,
+          result.moduleCode,
+          result.creditUnits,
+          result.score,
+          result.grade,
+          result.gradePoints,
+        ]
+          .map((val) => `"${val}"`) // wrap in quotes to avoid issues with commas
+          .join(",")
+      ),
+    ];
+
+    const csvContent = csvRows.join("\n");
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+
+    link.href = url;
+    link.setAttribute("download", "exam_results.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="Md:basis-1/5">
         <Button>
-          <LeftSide />
+          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </Button>
       </div>
-      <div className="flex-1 bg-gray-100 h-screen ">
-        <Details />
+      <div className="flex-1 bg-gray-100 px-4 py-6 ">
+        <Details
+          fullname={fullname}
+          regNo={regNo}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+        />
         <PageTitle>Exam Results</PageTitle>
         {/* from Chatgpt */}
-        <div className="max-w-6xl mx-auto p-6">
-          <h2 className="text-3xl font-semibold mb-6 text-center">
-            Exam Results
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">
+          <h2 className="text-3xl font-semibold mb-6 text-center text-gray-800">
+            📊 Exam Results
           </h2>
-          <table className="min-w-full table-auto border-separate border-spacing-0">
-            <thead className="bg-gray-100 text-[16px]">
-              <tr>
-                <th className="px-6 py-3 border-b text-left">Module</th>
-                <th className="px-6 py-3 border-b text-left">Result</th>
-                <th className="px-6 py-3 border-b text-left">Academic Year</th>
-                <th className="px-6 py-3 border-b text-left">Code</th>
-                <th className="px-6 py-3 border-b text-left">Credit Units</th>
-                <th className="px-6 py-3 border-b text-left">Score</th>
-                <th className="px-6 py-3 border-b text-left">Grade</th>
-                <th className="px-6 py-3 border-b text-left">Grade Points</th>
-              </tr>
-            </thead>
-            <tbody>
-              {examResults.map((result, index) => (
-                <tr
-                  key={index}
-                  className={`${
-                    index % 2 === 0 ? "bg-white" : "bg-gray-50"
-                  } border-b border-gray-300`}
-                >
-                  <td className="px-6 py-4 ">{result.moduleName}</td>
-                  <td className="px-6 py-4">{result.result}</td>
-                  <td className="px-6 py-4">{result.academicYear}</td>
-                  <td className="px-6 py-4">{result.moduleCode}</td>
-                  <td className="px-6 py-4">{result.creditUnits}</td>
-                  <td className="px-6 py-4">{result.score}</td>
-                  <td className="px-6 py-4">{result.grade}</td>
-                  <td className="px-6 py-4">{result.gradePoints}</td>
+
+          <div className="flex justify-start mb-4 cursor-pointer">
+            <button
+              onClick={downloadCSV}
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md shadow transition-all duration-200"
+            >
+              ⬇️ Download CSV
+            </button>
+          </div>
+
+          <div className="w-full overflow-x-auto bg-white shadow-md rounded-xl">
+            <table className=" min-w-full md:w-full text-sm text-left border-collapse">
+              <thead className="bg-gray-100 text-gray-700 text-base">
+                <tr>
+                  <th className="px-4 py-3 border border-gray-200">Module</th>
+                  <th className="px-4 py-3 border border-gray-200">Result</th>
+                  <th className="px-4 py-3 border border-gray-200">
+                    Academic Year
+                  </th>
+                  <th className="px-4 py-3 border border-gray-200">Code</th>
+                  <th className="px-4 py-3 border border-gray-200">
+                    Credit Units
+                  </th>
+                  <th className="px-4 py-3 border border-gray-200">Score</th>
+                  <th className="px-4 py-3 border border-gray-200">Grade</th>
+                  <th className="px-4 py-3 border border-gray-200">
+                    Grade Points
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {examResults.map((result, index) => (
+                  <tr
+                    key={index}
+                    className={`${
+                      index % 2 === 0 ? "bg-white" : "bg-gray-50"
+                    } hover:bg-blue-50 transition-all`}
+                  >
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.moduleName}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.result}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.academicYear}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.moduleCode}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.creditUnits}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.score}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.grade}
+                    </td>
+                    <td className="px-4 py-3 border border-gray-200">
+                      {result.gradePoints}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

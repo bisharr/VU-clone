@@ -51,68 +51,74 @@ function NewTodoList() {
 
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      {/* Left Sidebar */}
+      <div className=" md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>
       </div>
-      <div className="flex-1 bg-gray-100 h-screen">
+
+      {/* Main Content */}
+      <div className="flex-1 bg-gray-100 px-4 py-6">
         <Details />
         <PageTitle>Your daily To-do</PageTitle>
-        <div className="max-w-3xl mx-auto text-center">
-          {/* input */}
-          <div className="p-2 w-[70%] relative">
+
+        <div className="max-w-3xl mx-auto w-full flex flex-col items-center">
+          {/* Input Area */}
+          <div className="w-full sm:w-[90%] md:w-[70%] relative mb-4">
             <input
               value={textTodo}
               onChange={(e) => setTextTodo(e.target.value)}
               placeholder="Type here..."
-              className="bg-gray-600 py-2.5 rounded w-full text-white focus:outline-none focus:ring-0"
+              className="bg-gray-600 text-white py-3 px-4 rounded w-full focus:outline-none"
               type="text"
             />
             <button
               onClick={addTodo}
-              disabled={todo.length >= 10} // Disable button if task limit is reached
-              className="bg-blue-400 p-2.5 absolute right-0.5 w-[70px] border-none cursor-pointer"
+              disabled={todo.length >= 10}
+              className="absolute right-1 top-1 bottom-1 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded"
             >
               Add
             </button>
           </div>
 
+          {/* Task List */}
           {todo.map((task, i) => (
             <div
               key={task.id}
-              className="bg-blue-300 mt-2 rounded py-1 flex justify-between items-center w-[70%]"
+              className="bg-blue-300 mt-2 rounded py-2 px-3 flex justify-between items-center w-full sm:w-[90%] md:w-[70%]"
             >
               <div
                 onClick={() => handleToggleItem(task.id)}
-                className={`flex gap-4 items-center cursor-pointer px-1.5 ${
-                  task.completed ? "line-through" : ""
+                className={`flex flex-col sm:flex-row sm:gap-4 items-start sm:items-center cursor-pointer ${
+                  task.completed ? "line-through text-gray-700" : ""
                 }`}
               >
                 <p className="text-[17px]">{i < 9 ? `0${i + 1}` : i + 1}</p>
                 <p className="text-[17px] font-medium">{task.text}</p>
-                <span className="p-0.5 bg-blue-200 text-[15px]">
+                <span className="p-1 bg-blue-200 text-sm mt-1 sm:mt-0">
                   {task.date}
                 </span>
               </div>
 
               <p
                 onClick={() => handleDeleteTask(task.id)}
-                className="inline text-red-500 px-1.5 text-right text-[18px] font-bold cursor-pointer"
+                className="text-red-500 text-right text-[18px] font-bold cursor-pointer"
               >
                 Delete
               </p>
             </div>
           ))}
 
-          <div className="text-center p-1.5 w-[70%]">
+          {/* Footer */}
+          <div className="mt-4 w-full sm:w-[90%] md:w-[70%]">
             {todo.length >= 10 && (
-              <p className="text-center text-[16px] font-bold bg-red-400">
+              <p className="text-center text-[16px] font-bold bg-red-400 py-2 rounded">
                 You have reached your limit. Delete completed tasks to add more.
               </p>
             )}
             {todo.length > 0 && (
-              <p className="text-center text-[18px] font-bold">
+              <p className="text-center text-[18px] font-bold mt-2">
                 You have {todo.length} tasks, and {totalCompleted} are completed
                 ({completedPercentage}%).
               </p>

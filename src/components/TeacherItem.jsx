@@ -2,9 +2,13 @@ import { Link } from "react-router-dom";
 
 function TeacherItem({ teacher }) {
   return (
-    <div className="w-85 pb-2.5 bg-blue-400 border-amber-200 shadow-2xs overflow-hidden rounded-xl">
-      <img className="w-full h-40" src={teacher.photo} alt={teacher.name} />
-      <div className="px-3">
+    <div className="w-full md:w-80  pb-2.5 bg-blue-400 border-amber-200 shadow-2xs overflow-hidden rounded-xl">
+      <img
+        className="w-full h-auto  max-h-[400px] object-cover"
+        src={teacher.photo}
+        alt={teacher.name}
+      />
+      <div className="p-3">
         <h2 className="mt-2 font-bold">Name: {teacher.name}</h2>
         <p>Subject: {teacher.subject}</p>
         <p>Gender: {teacher.gender}</p>

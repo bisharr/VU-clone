@@ -2,16 +2,16 @@ import LeftSide from "../components/LeftSide";
 import Button from "../components/Button";
 import Details from "../components/Details";
 
-function Lectures() {
+function Lectures({ fullname, regNo }) {
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>
       </div>
       <div className="flex-1 bg-gray-100 h-screen ">
-        <Details />
+        <Details fullname={fullname} regNo={regNo} />
         <Lectures>Lectures</Lectures>
         <h1>Lectures</h1>
       </div>

@@ -40,7 +40,7 @@ function HomeSlides() {
   }, [messages, pause]); // ✅ Changed `messages.length` to `messages`
 
   return (
-    <div className="basis-[70%]">
+    <div className="w-full">
       <div className=" text-white bg-blue-500 w-full flex rounded-[8px] ">
         <motion.div
           key={currentSlide}

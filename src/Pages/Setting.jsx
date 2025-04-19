@@ -8,7 +8,7 @@ import PageTitle from "../components/PageTitle";
 function Setting() {
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>

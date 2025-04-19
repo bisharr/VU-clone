@@ -9,7 +9,7 @@ function Teachers({ teacher }) {
   console.log(teacher);
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>

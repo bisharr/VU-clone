@@ -226,6 +226,7 @@ function App() {
 
   const [fullname, setFullname] = useState("Bishar Abdinur");
   const [regno, setRegno] = useState("VU-BCS-2301-0961-DAY");
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <>
@@ -233,7 +234,14 @@ function App() {
         <Routes>
           <Route
             path="home"
-            element={<Home fullname={fullname} regNo={regno} />}
+            element={
+              <Home
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
           />
           <Route
             path="/"
@@ -246,28 +254,117 @@ function App() {
               />
             }
           />
-          <Route path="modules" element={<Modules />} />
-          <Route path="vuai" element={<VuAiModel />} />
+          <Route
+            path="modules"
+            element={
+              <Modules
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
+          />
+          <Route
+            path="vuai"
+            element={
+              <VuAiModel
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
+          />
 
-          <Route path="lec" element={<Lectures />} />
-          <Route path="coursework" element={<CourseWork />} />
-          <Route path="exams" element={<Examination />} />
-          <Route path="examresults" element={<ExamResults />} />
-          <Route path="financial" element={<Fiancial />} />
-          <Route path="todoList" element={<NewTodoList />} />
-          <Route path="teachers" element={<Teachers teacher={teacher} />} />
+          <Route
+            path="lec"
+            element={<Lectures fullname={fullname} regNo={regno} />}
+          />
+          <Route
+            path="coursework"
+            element={
+              <CourseWork
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
+          />
+          <Route
+            path="exams"
+            element={
+              <Examination
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
+          />
+          <Route
+            path="examresults"
+            element={
+              <ExamResults
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
+          />
+          <Route
+            path="financial"
+            element={<Fiancial fullname={fullname} regNo={regno} />}
+          />
+          <Route
+            path="todoList"
+            element={<NewTodoList fullname={fullname} regNo={regno} />}
+          />
+          <Route
+            path="teachers"
+            element={
+              <Teachers teacher={teacher} fullname={fullname} regNo={regno} />
+            }
+          />
           {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
           <Route
             path="teachers/:id"
-            element={<TeacherDetail teacher={teacher} />}
+            element={
+              <TeacherDetail
+                teacher={teacher}
+                fullname={fullname}
+                regNo={regno}
+              />
+            }
           />
 
-          <Route path="elections" element={<Elections />} />
-          <Route path="setting" element={<Setting />} />
+          <Route
+            path="elections"
+            element={
+              <Elections
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
+          />
+          <Route
+            path="setting"
+            element={<Setting fullname={fullname} regNo={regno} />}
+          />
 
-          <Route path="logout" element={<LogOut />} />
+          <Route
+            path="logout"
+            element={<LogOut fullname={fullname} regNo={regno} />}
+          />
 
-          <Route path="*" element={<PageNotFound />} />
+          <Route
+            path="*"
+            element={<PageNotFound fullname={fullname} regNo={regno} />}
+          />
         </Routes>
       </BrowserRouter>
     </>

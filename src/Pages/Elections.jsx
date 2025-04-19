@@ -3,15 +3,22 @@ import LeftSide from "../components/LeftSide";
 
 import electionCover from "../assets/electioncover.png";
 import electionSide from "../assets/electionside.png";
-function Elections() {
+import Details from "../components/Details";
+function Elections({ fullname, regNo, openMenu, setOpenMenu }) {
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="md:basis-1/5">
         <Button>
           <LeftSide />
         </Button>
       </div>
       <div className="flex-1 bg-gray-100 h-screen overflow-scroll scrol ">
+        <Details
+          fullname={fullname}
+          regNo={regNo}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+        />
         <div className=" mx-auto-3">
           <img src={electionCover} alt="cover" />
           <div className="flex  justify-around mt-12 p-3 w-[80%] mx-auto">

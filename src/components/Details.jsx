@@ -1,7 +1,23 @@
-function Details({ regNo, fullname }) {
+function Details({ regNo, fullname, openMenu, setOpenMenu }) {
   return (
     <div className=" w-[96%] mx-auto  flex justify-between items-center p-3 mt-3.5">
       <div className="flex gap-x-3 items-center">
+        <svg
+          onClick={() => setOpenMenu(true)}
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className={`size-5 md:hidden cursor-pointer ${
+            openMenu ? "hidden" : "inline"
+          }`}
+        >
+          <path
+            fillRule="evenodd"
+            d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+            clipRule="evenodd"
+          />
+        </svg>
+
         <p className=" font-bold">{fullname}|</p>
         <p className="text-gray-400 text-[13px] space-x-1">{regNo}</p>
       </div>

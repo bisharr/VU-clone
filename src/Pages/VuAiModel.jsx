@@ -4,8 +4,9 @@ import LeftSide from "../components/LeftSide";
 import { askGemini } from "../serviceAPi/GeminiAPi";
 import PageTitle from "../components/PageTitle";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import Details from "../components/Details";
 
-function VuAiModel() {
+function VuAiModel({ fullname, regNo, openMenu, setOpenMenu }) {
   const [question, setQuestion] = useState("");
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,13 +30,19 @@ function VuAiModel() {
   };
   return (
     <div className="w-full flex">
-      <div className="basis-1/5">
+      <div className="md:basis-1/5">
         <Button>
-          <LeftSide />
+          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
         </Button>
       </div>
 
       <div className="flex-1 bg-gray-100 h-screen ">
+        <Details
+          fullname={fullname}
+          regNo={regNo}
+          openMenu={openMenu}
+          setOpenMenu={setOpenMenu}
+        />
         <PageTitle className="my-2.5">VU AI</PageTitle>
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
           <div className="w-full max-w-2xl">

@@ -10,7 +10,6 @@ function LoginPage({ fullname, regNo, setFullname, setRegno }) {
     if (!regNo) return;
 
     navigateTOhome("/home");
-    setFullname("");
   }
   return (
     <div className="flex  border-2 p-1.5 py-3.5 h-screen w-screen bg-white ">
