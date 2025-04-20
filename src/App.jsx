@@ -230,7 +230,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter basename="/VU-clone">
         <Routes>
           <Route
             path="home"
@@ -316,16 +316,36 @@ function App() {
           />
           <Route
             path="financial"
-            element={<Fiancial fullname={fullname} regNo={regno} />}
+            element={
+              <Fiancial
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
           />
           <Route
             path="todoList"
-            element={<NewTodoList fullname={fullname} regNo={regno} />}
+            element={
+              <NewTodoList
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
+            }
           />
           <Route
             path="teachers"
             element={
-              <Teachers teacher={teacher} fullname={fullname} regNo={regno} />
+              <Teachers
+                teacher={teacher}
+                fullname={fullname}
+                regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
+              />
             }
           />
           {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
@@ -336,6 +356,8 @@ function App() {
                 teacher={teacher}
                 fullname={fullname}
                 regNo={regno}
+                openMenu={openMenu}
+                setOpenMenu={setOpenMenu}
               />
             }
           />
