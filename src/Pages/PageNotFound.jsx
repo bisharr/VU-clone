@@ -9,7 +9,9 @@ function PageNotFound() {
           <LeftSide />
         </Button>
       </div>
-      <div className="flex-1 bg-gray-100 h-screen ">Modules</div>
+      <div className="flex-1 bg-gray-100 h-screen ">
+        this page is not available
+      </div>
     </div>
   );
 }

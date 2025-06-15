@@ -5,24 +5,19 @@ import PageTitle from "../components/PageTitle";
 // import TeacherDetail from "../components/TeacherDetail";
 import TeacherList from "../components/TeacherList";
 
-function Teachers({ teacher, openMenu, setOpenMenu, fullname, regNo }) {
+function Teachers({ teacher }) {
   console.log(teacher);
   return (
     <div className="w-full flex">
       <div className="md:basis-1/5">
         <Button>
-          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <LeftSide />
         </Button>
       </div>
       <div className="flex-1 bg-gray-100 h-screen overflow-scroll scrol">
-        <Details
-          fullname={fullname}
-          regNo={regNo}
-          openMenu={openMenu}
-          setOpenMenu={setOpenMenu}
-        />
+        <Details />
         <PageTitle>Teachers</PageTitle>
-        <TeacherList teacher={teacher} />
+        <TeacherList />
       </div>
     </div>
   );

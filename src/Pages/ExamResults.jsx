@@ -36,7 +36,7 @@ const examResults = [
   // Add more data as needed
 ];
 
-function ExamResults({ openMenu, setOpenMenu, fullname, regNo }) {
+function ExamResults() {
   const downloadCSV = () => {
     const headers = [
       "Module",
@@ -83,16 +83,11 @@ function ExamResults({ openMenu, setOpenMenu, fullname, regNo }) {
     <div className="w-full flex">
       <div className="Md:basis-1/5">
         <Button>
-          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <LeftSide />
         </Button>
       </div>
       <div className="flex-1 bg-gray-100 px-4 py-6 ">
-        <Details
-          fullname={fullname}
-          regNo={regNo}
-          openMenu={openMenu}
-          setOpenMenu={setOpenMenu}
-        />
+        <Details />
         <PageTitle>Exam Results</PageTitle>
         {/* from Chatgpt */}
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6">

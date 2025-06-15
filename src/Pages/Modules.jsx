@@ -4,21 +4,16 @@ import Details from "../components/Details";
 import LeftSide from "../components/LeftSide";
 import ModulesFront from "../components/ModulesFront";
 
-function Modules({ fullname, regNo, openMenu, setOpenMenu }) {
+function Modules() {
   return (
     <div className="w-full flex">
       <div className=" md:basis-1/5">
         <Button>
-          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <LeftSide />
         </Button>
       </div>
       <div className="flex-1  bg-gray-100 h-screen overflow-scroll scrol ">
-        <Details
-          fullname={fullname}
-          regNo={regNo}
-          openMenu={openMenu}
-          setOpenMenu={setOpenMenu}
-        />
+        <Details />
 
         <ModulesFront />
       </div>

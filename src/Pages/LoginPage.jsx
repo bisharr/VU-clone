@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
 import coverImg from "../assets/grouppic.jpg";
 import logo from "../assets/logo.png";
+import { useContext } from "react";
+import { Vucontext } from "../App";
 
-function LoginPage({ fullname, regNo, setFullname, setRegno }) {
+function LoginPage() {
+  const { fullname, regno, setFullname, setRegno } = useContext(Vucontext);
   const navigateTOhome = useNavigate();
   function onAdd(e) {
     e.preventDefault();
     if (!fullname) return;
-    if (!regNo) return;
+    if (!regno) return;
 
     navigateTOhome("/home");
   }
@@ -33,7 +36,7 @@ function LoginPage({ fullname, regNo, setFullname, setRegno }) {
           />
           <input
             placeholder="Enter Your Reg Number"
-            value={regNo}
+            value={regno}
             onChange={(e) => setRegno(e.target.value)}
             className=" border-1 text-gray-500 text-[14px] border-gray-300 placeholder:text-gray-400 rounded p-1.5 px-3 focus:border-gray-200"
           />

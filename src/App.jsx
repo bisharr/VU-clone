@@ -18,6 +18,9 @@ import TeacherDetail from "./components/TeacherDetail";
 import LoginPage from "./pages/LoginPage.jsx";
 import VuAiModel from "./Pages/VuAiModel";
 import NewTodoList from "./Pages/NewTodoList";
+import { createContext } from "react";
+
+export const Vucontext = createContext();
 
 function App() {
   const teacher = [
@@ -230,165 +233,43 @@ function App() {
 
   return (
     <>
-      <BrowserRouter basename="/VU-clone">
-        <Routes>
-          <Route
-            path="home"
-            element={
-              <Home
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <LoginPage
-                fullname={fullname}
-                regNo={regno}
-                setFullname={setFullname}
-                setRegno={setRegno}
-              />
-            }
-          />
-          <Route
-            path="modules"
-            element={
-              <Modules
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="vuai"
-            element={
-              <VuAiModel
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
+      <Vucontext.Provider
+        value={{
+          fullname,
+          regno,
+          setRegno,
+          openMenu,
+          setOpenMenu,
+          setFullname,
+          teacher,
+        }}
+      >
+        <BrowserRouter basename="/VU-clone">
+          <Routes>
+            <Route path="home" element={<Home />} />
+            <Route path="/" element={<LoginPage />} />
+            <Route path="modules" element={<Modules />} />
+            <Route path="vuai" element={<VuAiModel />} />
 
-          <Route
-            path="lec"
-            element={<Lectures fullname={fullname} regNo={regno} />}
-          />
-          <Route
-            path="coursework"
-            element={
-              <CourseWork
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="exams"
-            element={
-              <Examination
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="examresults"
-            element={
-              <ExamResults
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="financial"
-            element={
-              <Fiancial
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="todoList"
-            element={
-              <NewTodoList
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="teachers"
-            element={
-              <Teachers
-                teacher={teacher}
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
-          <Route
-            path="teachers/:id"
-            element={
-              <TeacherDetail
-                teacher={teacher}
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
+            <Route path="lec" element={<Lectures />} />
+            <Route path="coursework" element={<CourseWork />} />
+            <Route path="exams" element={<Examination />} />
+            <Route path="examresults" element={<ExamResults />} />
+            <Route path="financial" element={<Fiancial />} />
+            <Route path="todoList" element={<NewTodoList />} />
+            <Route path="teachers" element={<Teachers />} />
+            {/* <Route path="teachers/:id" element={<TeacherDetail />} /> */}
+            <Route path="teachers/:id" element={<TeacherDetail />} />
 
-          <Route
-            path="elections"
-            element={
-              <Elections
-                fullname={fullname}
-                regNo={regno}
-                openMenu={openMenu}
-                setOpenMenu={setOpenMenu}
-              />
-            }
-          />
-          <Route
-            path="setting"
-            element={<Setting fullname={fullname} regNo={regno} />}
-          />
+            <Route path="elections" element={<Elections />} />
+            <Route path="setting" element={<Setting />} />
 
-          <Route
-            path="logout"
-            element={<LogOut fullname={fullname} regNo={regno} />}
-          />
+            <Route path="logout" element={<LogOut />} />
 
-          <Route
-            path="*"
-            element={<PageNotFound fullname={fullname} regNo={regno} />}
-          />
-        </Routes>
-      </BrowserRouter>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </Vucontext.Provider>
     </>
   );
 }

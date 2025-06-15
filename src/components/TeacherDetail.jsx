@@ -2,8 +2,11 @@ import { useParams, Link } from "react-router-dom";
 import Button from "./Button";
 import LeftSide from "./LeftSide";
 import Details from "./Details";
+import { useContext } from "react";
+import { Vucontext } from "../App";
 
-function TeacherDetail({ teacher }) {
+function TeacherDetail() {
+  const { teacher } = useContext(Vucontext);
   const { id } = useParams(); // Get the teacher ID from the URL
   const selectedTeacher = teacher.find((t) => t.id === parseInt(id)); // Find teacher by ID
 

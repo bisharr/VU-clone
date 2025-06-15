@@ -1,4 +1,9 @@
-function Details({ regNo, fullname, openMenu, setOpenMenu }) {
+import { useContext } from "react";
+import { Vucontext } from "../App";
+
+function Details() {
+  const { regno, fullname, openMenu, setOpenMenu } = useContext(Vucontext);
+
   return (
     <div className=" w-[96%] mx-auto  flex justify-between items-center p-3 mt-3.5">
       <div className="flex gap-x-3 items-center">
@@ -19,7 +24,7 @@ function Details({ regNo, fullname, openMenu, setOpenMenu }) {
         </svg>
 
         <p className=" font-bold">{fullname}|</p>
-        <p className="text-gray-400 text-[13px] space-x-1">{regNo}</p>
+        <p className="text-gray-400 text-[13px] space-x-1">{regno}</p>
       </div>
       <svg
         xmlns="http://www.w3.org/2000/svg"

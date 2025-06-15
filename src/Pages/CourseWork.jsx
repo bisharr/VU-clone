@@ -7,7 +7,7 @@ import CourseWrokpage from "../components/CourseWrokpage";
 import { useEffect } from "react";
 import { askGemini } from "../serviceAPi/GeminiAPi";
 
-function CourseWork({ openMenu, setOpenMenu, fullname, regNo }) {
+function CourseWork() {
   console.log("Hello from gemini ");
   useEffect(() => {
     const fetchData = async () => {
@@ -22,16 +22,11 @@ function CourseWork({ openMenu, setOpenMenu, fullname, regNo }) {
     <div className="w-full flex">
       <div className=" md:basis-1/5">
         <Button>
-          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <LeftSide />
         </Button>
       </div>
       <div className="flex-1 bg-gray-100 h-screen overflow-scroll scrol p-1.5 ">
-        <Details
-          fullname={fullname}
-          regNo={regNo}
-          openMenu={openMenu}
-          setOpenMenu={setOpenMenu}
-        />
+        <Details />
         <PageTitle>Course Work</PageTitle>
         <h1 className="text-gray-700 font-bold ml-5">Available Course Work</h1>
         <CourseWrokpage />

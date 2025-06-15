@@ -13,12 +13,16 @@ import Settingbtn from "../buttons/Settingbtn";
 import LogOutbtn from "../buttons/LogOutbtn";
 import TodoBtn from "../buttons/TodoBtn";
 import VuAi from "../buttons/VuAi";
+import { useContext } from "react";
+import { Vucontext } from "../App";
 
 // import LecBtn from "../buttons/LecBtn";
 
 // bg-gray-50 main bg
 
-function LeftSide({ openMenu, setOpenMenu }) {
+function LeftSide() {
+  const { openMenu, setOpenMenu } = useContext(Vucontext);
+
   return (
     <div
       className={`flex-col items-start pl-4 text-[18px]  md:flex  ${

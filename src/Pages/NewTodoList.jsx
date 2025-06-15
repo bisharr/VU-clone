@@ -4,7 +4,7 @@ import LeftSide from "../components/LeftSide";
 import Details from "../components/Details";
 import PageTitle from "../components/PageTitle";
 
-function NewTodoList({ fullname, regNo, openMenu, setOpenMenu }) {
+function NewTodoList() {
   const [todo, setTodo] = useState(() => {
     const storedTodo = localStorage.getItem("todo");
     return storedTodo ? JSON.parse(storedTodo) : []; // Default to an empty array
@@ -54,18 +54,13 @@ function NewTodoList({ fullname, regNo, openMenu, setOpenMenu }) {
       {/* Left Sidebar */}
       <div className=" md:basis-1/5">
         <Button>
-          <LeftSide openMenu={openMenu} setOpenMenu={setOpenMenu} />
+          <LeftSide />
         </Button>
       </div>
 
       {/* Main Content */}
       <div className="flex-1 bg-gray-100 px-4 py-6">
-        <Details
-          fullname={fullname}
-          regNo={regNo}
-          openMenu={openMenu}
-          setOpenMenu={setOpenMenu}
-        />
+        <Details />
         <PageTitle>Your daily To-do</PageTitle>
 
         <div className="max-w-3xl mx-auto w-full flex flex-col items-center">
