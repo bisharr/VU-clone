@@ -5,8 +5,7 @@ import PageTitle from "../components/PageTitle";
 // import TeacherDetail from "../components/TeacherDetail";
 import TeacherList from "../components/TeacherList";
 
-function Teachers({ teacher }) {
-  console.log(teacher);
+function Teachers() {
   return (
     <div className="w-full flex">
       <div className="md:basis-1/5">

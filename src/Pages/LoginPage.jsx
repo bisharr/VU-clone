@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import coverImg from "../assets/grouppic.jpg";
 import logo from "../assets/logo.png";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Vucontext } from "../App";
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 function LoginPage() {
+  const [isPasswordVisible, setIspasswordVisible] = useState(false);
   const { fullname, regno, setFullname, setRegno } = useContext(Vucontext);
   const navigateTOhome = useNavigate();
   function onAdd(e) {
@@ -34,12 +37,27 @@ function LoginPage() {
             className=" border-gray-300 border-1 text-gray-500 text-[15px] rounded p-1.5 px-3 focus:border-none"
             placeholder="Enter Your Name"
           />
-          <input
-            placeholder="Enter Your Reg Number"
-            value={regno}
-            onChange={(e) => setRegno(e.target.value)}
-            className=" border-1 text-gray-500 text-[14px] border-gray-300 placeholder:text-gray-400 rounded p-1.5 px-3 focus:border-gray-200"
-          />
+          <div className="relative">
+            <input
+              placeholder="Enter Your Reg Number"
+              value={regno}
+              type={`${isPasswordVisible ? "text" : "password"}`}
+              onChange={(e) => setRegno(e.target.value)}
+              className=" border-1 text-gray-500 text-[14px] w-full border-gray-300 placeholder:text-gray-400 rounded p-1.5 px-3 focus:border-gray-200"
+            />
+            {isPasswordVisible ? (
+              <FaEye
+                onClick={() => setIspasswordVisible(!isPasswordVisible)}
+                className=" absolute right-3 bottom-[30%] traslate-y-[50%] cursor-pointer opacity-65"
+              />
+            ) : (
+              <FaEyeSlash
+                onClick={() => setIspasswordVisible(!isPasswordVisible)}
+                className=" absolute right-3 bottom-[30%] traslate-y-[50%] cursor-pointer opacity-65"
+              />
+            )}
+          </div>
+
           <div className="flex text-[14px] py-1 text-gray-500 items-center gap-0">
             <input className=" text-left" type="checkbox" />
             <span>Remember me </span>

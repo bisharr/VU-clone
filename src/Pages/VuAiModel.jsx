@@ -19,7 +19,7 @@ function VuAiModel() {
     const response = await askGemini(question);
     setLoading(false);
 
-    console.log(response);
+ 
 
     setAnswer(response);
     setQuestion("");
